@@ -32,6 +32,7 @@
           aria-label="Search"
           aria-describedby="button-addon2"
           @keyup.enter="searchImage"
+          v-model="search_query"
         />
 
         <button
@@ -61,7 +62,7 @@
           @click="searchImage"
           @keyup.enter="searchImage"
         >
-        
+
           <svg
             aria-hidden="true"
             focusable="false"
@@ -108,8 +109,6 @@
 <script>
 export default {
   data: function () {
-    this.query = "car";
-
     return {
         images: [],
         total: 0,
@@ -122,9 +121,8 @@ export default {
 
   methods: {
     searchImage: function () {
-        console.log('/api/search?page=' + (this.page++) + '&q=' + this.query);
         axios
-            .get('/api/search?page=' + (this.page++) + '&q=' + this.query)
+            .get('/api/search?page=' + (this.page++) + '&q=' + this.search_query)
             .then((response) => {
             this.images = response.data.hits;
             this.total = response.data.total;
