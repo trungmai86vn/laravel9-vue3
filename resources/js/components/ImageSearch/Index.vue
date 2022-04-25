@@ -124,13 +124,12 @@ export default {
         axios
             .get('/api/search?page=' + (this.page++) + '&q=' + this.search_query)
             .then((response) => {
-            this.images = response.data.hits;
-            this.total = response.data.total;
-            this.total_hits = response.data.totalHits;
-            console.log(response.data);
+                this.images = response.data.hits;
+                this.total = response.data.total;
+                this.total_hits = response.data.totalHits;
             })
             .catch(function (error) {
-            console.log(error);
+                console.log(error);
             });
     },
 

@@ -21369,7 +21369,6 @@ __webpack_require__.r(__webpack_exports__);
         _this.images = response.data.hits;
         _this.total = response.data.total;
         _this.total_hits = response.data.totalHits;
-        console.log(response.data);
       })["catch"](function (error) {
         console.log(error);
       });
