@@ -33,6 +33,7 @@
           aria-describedby="button-addon2"
           @keyup.enter="searchImage"
         />
+        
         <button
           class="
             btn
