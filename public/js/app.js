@@ -21365,7 +21365,7 @@ __webpack_require__.r(__webpack_exports__);
     searchImage: function searchImage() {
       var _this = this;
 
-      axios.get('/api/search?page=' + this.page++ + '&q=' + this.search_query).then(function (response) {
+      axios.get('/api/search?page=' + this.page + '&q=' + this.search_query).then(function (response) {
         _this.images = response.data.hits;
         _this.total = response.data.total;
         _this.total_hits = response.data.totalHits;
@@ -21378,7 +21378,7 @@ __webpack_require__.r(__webpack_exports__);
       this.searchImage();
     },
     goNext: function goNext() {
-      this.page = this.page++;
+      this.page++;
       this.searchImage();
     }
   }

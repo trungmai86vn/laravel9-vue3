@@ -122,7 +122,7 @@ export default {
   methods: {
     searchImage: function () {
         axios
-            .get('/api/search?page=' + (this.page++) + '&q=' + this.search_query)
+            .get('/api/search?page=' + this.page + '&q=' + this.search_query)
             .then((response) => {
                 this.images = response.data.hits;
                 this.total = response.data.total;
@@ -139,7 +139,7 @@ export default {
     },
 
     goNext: function(){
-        this.page = this.page++;
+        this.page++;
         this.searchImage();
     }
   },
