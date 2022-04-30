@@ -134,7 +134,7 @@ export default {
     },
 
     goPrevious: function(){
-        this.page = this.page==1 ? 1 : this.page--;
+        this.page = this.page==1 ? 1 : --this.page;
         this.searchImage();
     },
 

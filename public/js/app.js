@@ -21374,7 +21374,7 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     goPrevious: function goPrevious() {
-      this.page = this.page == 1 ? 1 : this.page--;
+      this.page = this.page == 1 ? 1 : --this.page;
       this.searchImage();
     },
     goNext: function goNext() {
