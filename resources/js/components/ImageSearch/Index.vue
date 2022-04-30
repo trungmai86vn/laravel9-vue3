@@ -113,7 +113,8 @@ export default {
         images: [],
         total: 0,
         total_hits: 0,
-        page: 1
+        page: 1,
+        cancel_source: null
     };
   },
 
@@ -121,8 +122,16 @@ export default {
 
   methods: {
     searchImage: function () {
+        //Cancel existing request
+        if(this.cancel_source)
+            this.cancel_source.cancel();
+
+        this.cancel_source = axios.CancelToken.source();
+
         axios
-            .get('/api/search?page=' + this.page + '&q=' + this.search_query)
+            .get('/api/search?page=' + this.page + '&q=' + this.search_query, {
+                cancelToken: this.cancel_source.token
+            })
             .then((response) => {
                 this.images = response.data.hits;
                 this.total = response.data.total;

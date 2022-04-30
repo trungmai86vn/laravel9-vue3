@@ -21357,7 +21357,8 @@ __webpack_require__.r(__webpack_exports__);
       images: [],
       total: 0,
       total_hits: 0,
-      page: 1
+      page: 1,
+      cancel_source: null
     };
   },
   mounted: function mounted() {},
@@ -21365,7 +21366,12 @@ __webpack_require__.r(__webpack_exports__);
     searchImage: function searchImage() {
       var _this = this;
 
-      axios.get('/api/search?page=' + this.page + '&q=' + this.search_query).then(function (response) {
+      //Cancel existing request
+      if (this.cancel_source) this.cancel_source.cancel();
+      this.cancel_source = axios.CancelToken.source();
+      axios.get('/api/search?page=' + this.page + '&q=' + this.search_query, {
+        cancelToken: this.cancel_source.token
+      }).then(function (response) {
         _this.images = response.data.hits;
         _this.total = response.data.total;
         _this.total_hits = response.data.totalHits;
