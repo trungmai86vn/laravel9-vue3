@@ -13,4 +13,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('/', 'dashboard')->name('dashboard');
+Route::view('/', 'image_search')->name('image_search');
+Route::view('/google-address', 'google_address')->name('google_address');
