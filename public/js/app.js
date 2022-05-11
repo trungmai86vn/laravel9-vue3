@@ -21365,7 +21365,7 @@ __webpack_require__.r(__webpack_exports__);
       //Cancel existing request
       if (this.cancel_source) this.cancel_source.cancel();
       this.cancel_source = axios.CancelToken.source();
-      axios.get('https://maps.googleapis.com/maps/api/place/autocomplete/json?key=AIzaSyDdaJmEdBkR7IJDeRTJ5qaxOxr28QhYBUg&input=' + this.search_query, {
+      axios.get('/api/address-autocomplete?q=' + this.search_query, {
         cancelToken: this.cancel_source.token
       }).then(function (response) {
         _this.predictions = response.data.predictions;

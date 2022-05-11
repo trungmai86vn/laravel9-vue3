@@ -22,4 +22,5 @@ Route::group([
     'namespace' => '\App\Http\Controllers',
 ], function () {
     Route::get('search', 'ImageSearchController@search');
+    Route::get('address-autocomplete', 'GoogleController@autocomplete');
 });

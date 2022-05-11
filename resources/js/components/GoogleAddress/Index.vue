@@ -89,7 +89,7 @@
             <div class="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
             <div class="group relative" v-for="prediction in predictions" v-bind:key="prediction.place_id">
                 <p class="text-sm font-medium text-gray-900">Description: {{ prediction.description }}</p>
-                <p class="text-sm font-medium text-gray-900">PLace ID: {{ prediction.place_id }}</p>
+                <p class="text-sm font-medium text-gray-900">Place ID: {{ prediction.place_id }}</p>
             </div>
 
             <!-- More products... -->
@@ -117,7 +117,7 @@ export default {
         this.cancel_source = axios.CancelToken.source();
 
         axios
-            .get('https://maps.googleapis.com/maps/api/place/autocomplete/json?key=AIzaSyDdaJmEdBkR7IJDeRTJ5qaxOxr28QhYBUg&input=' + this.search_query, {
+            .get('/api/address-autocomplete?q=' + this.search_query, {
                 cancelToken: this.cancel_source.token
             })
             .then((response) => {
