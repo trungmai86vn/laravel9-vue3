@@ -111,6 +111,7 @@ export default {
   data: function () {
     return {
         images: [],
+        search_query: '',
         total: 0,
         total_hits: 0,
         page: 1,

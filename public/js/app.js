@@ -21393,6 +21393,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       images: [],
+      search_query: '',
       total: 0,
       total_hits: 0,
       page: 1,
@@ -21407,6 +21408,7 @@ __webpack_require__.r(__webpack_exports__);
       //Cancel existing request
       if (this.cancel_source) this.cancel_source.cancel();
       this.cancel_source = axios.CancelToken.source();
+      console.log('/api/search?page=' + this.page + '&q=' + this.search_query);
       axios.get('/api/search?page=' + this.page + '&q=' + this.search_query, {
         cancelToken: this.cancel_source.token
       }).then(function (response) {
@@ -21519,7 +21521,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       key: prediction.place_id
     }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_9, "Description: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(prediction.description), 1
     /* TEXT */
-    ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_10, "PLace ID: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(prediction.place_id), 1
+    ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_10, "Place ID: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(prediction.place_id), 1
     /* TEXT */
     )]);
   }), 128
