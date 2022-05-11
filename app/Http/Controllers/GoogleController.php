@@ -12,7 +12,7 @@ class GoogleController extends Controller
             $key = env('GOOGLE_API_KEY');
             $input = request()->q;
             $components = implode('|', [
-                'country:au'
+                'country:au' 
             ]);
 
             $response = Http::get('https://maps.googleapis.com/maps/api/place/autocomplete/json?key=' . $key . '&components=' . $components . '&input=' . $input);
