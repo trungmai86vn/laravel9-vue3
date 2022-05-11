@@ -131,7 +131,7 @@ export default {
 
         axios
             .get('/api/search?page=' + this.page + '&q=' + this.search_query, {
-                cancelToken: this.cancel_source.token
+                cancelToken: this.cancel_source.token 
             })
             .then((response) => {
                 this.images = response.data.hits;
