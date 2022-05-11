@@ -12,6 +12,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('login', function(){
+    return;
+});
 
 Route::view('/', 'image_search')->name('image_search');
 Route::view('/google-address', 'google_address')->name('google_address');
